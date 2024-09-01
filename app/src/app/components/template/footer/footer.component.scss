@@ -1,0 +1,75 @@
+@import url("../../../app.component.scss");
+
+.footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+  font-size: 0.8rem;
+  margin-top: 50px;
+}
+
+.about {
+  width: 200px;
+  min-width: 200px !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.icon {
+  width: 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  padding-bottom: 20px;
+  height: 200px;
+}
+
+.footer-section {
+  margin-right: 20px;
+}
+
+.footer-section h5 {
+  margin-bottom: 10px;
+}
+
+.subscribe-section input,
+.subscribe-section button {
+  margin-top: 5px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.white {
+  margin-right: 10px;
+}
+
+.sub-footer {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .categories-mobile {
+    display: none;
+  }
+
+  .footer-section,
+  .about {
+    text-align: center;
+  }
+}

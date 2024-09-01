@@ -1,0 +1,12 @@
+<mat-toolbar *ngIf="!isMobileView()" class="navbar">
+  <mat-nav-list *ngIf="this.router.url === '/'">
+    <a
+      *ngFor="let category of categoriesList"
+      class="terminator-font text-center"
+      mat-list-item
+      (click)="filterByCategory(category.category_id)"
+    >
+      {{ category.name }}
+    </a>
+  </mat-nav-list>
+</mat-toolbar>

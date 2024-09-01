@@ -1,0 +1,51 @@
+<div class="container mt-5" *ngIf="isLoading">
+  <div class="row">
+    <div
+      class="col-sm-4 col-xs-12 mb-5 loading-animation"
+      *ngFor="let i of [].constructor(5)"
+    >
+      <mat-card class="example-card mb-3 elevar">
+        <div class="fake-image"></div>
+        <div class="fake-text"></div>
+        <div class="fake-text"></div>
+        <div class="fake-button"></div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="!isLoading">
+  <div class="row">
+    <div
+      class="col-sm-4 col-xs-12 mb-5"
+      *ngFor="let product of this.productService.products"
+    >
+      <mat-card class="example-card mb-3 elevar pointer">
+        <img
+          mat-card-sm-image
+          class="pointer img justify-content-center"
+          routerLink="product/detail/{{ product.product_id }}"
+          src="{{ product.imageUrl }}"
+          width="200px"
+          height="300px"
+        />
+        <mat-card-title
+          routerLink="product/detail/{{ product.product_id }}"
+          class="terminator-font font-title mt-3"
+          >{{ product.name }}</mat-card-title
+        >
+        <mat-card-content
+          routerLink="product/detail/{{ product.product_id }}"
+          class="font-title"
+        >
+          <strong>
+            {{ product.price | currency: "USD" : "symbol" : "1.2-2" }}</strong
+          >
+        </mat-card-content>
+        <button (click)="addToCart()" class="button-terminator"
+          >Add to cart</button
+        >
+      </mat-card>
+    </div>
+  </div>
+</div>

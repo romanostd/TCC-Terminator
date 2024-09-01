@@ -1,0 +1,31 @@
+{
+  "family": "terminator-deploy-front",
+  "executionRoleArn": "arn:aws:iam::298710913831:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "terminator-api-front",
+      "image": "romanostd/terminator-front:latest",
+      "cpu": 256, 
+      "memory": 512,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/terminator-deploy-front",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024", 
+  "memory": "3072" 
+}

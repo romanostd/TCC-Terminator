@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-card class="login p-3">
+    <div class="row text-center">
+      <mat-card-title class="terminator-font">Login</mat-card-title>
+    </div>
+    <mat-card-content>
+      <form [formGroup]="form">
+        <div class="row">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="email"
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <input
+              (keydown.enter)="login()"
+              matInput
+              placeholder="password"
+              formControlName="password"
+              type="password"
+            />
+          </mat-form-field>
+          <mat-error *ngIf="this.errorMessage != false">
+            {{ errorMessage }}
+          </mat-error>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between">
+      <button (click)="openDialog()" mat-button>Create Account</button>
+      <button routerLink="/resetPassword" mat-button>Forgot password?</button>
+      <button [disabled]="form.invalid" (click)="login()" aling mat-button
+        >Login</button
+      >
+    </mat-card-actions>
+  </mat-card>
+</div>

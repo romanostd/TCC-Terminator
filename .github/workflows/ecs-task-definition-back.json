@@ -1,0 +1,33 @@
+{
+    "family": "terminator-deploy-back",
+    "executionRoleArn": "arn:aws:iam::298710913831:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+      {
+        "name": "terminator-api",
+        "image": "romanostd/terminator-back:latest",
+        "cpu": 0,
+        "memory": 30720,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 3000,
+            "protocol": "tcp"
+          }
+        ],
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/ecs/terminator-deploy-back",
+            "awslogs-region": "us-east-2",
+            "awslogs-stream-prefix": "ecs"
+          }
+        }
+      }
+    ],
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "4096",
+    "memory": "30720"
+  }
+  
